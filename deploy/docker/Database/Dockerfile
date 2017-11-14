@@ -1,7 +1,8 @@
 FROM mongo
 
-MAINTAINER juliens@microsoft.com
+MAINTAINER pablo.bermejo@uclm.es
+#/data/db/ será el volumen usado para persistencia de sesión
+COPY drop/* usr/local/data/db/
 
-COPY drop/* /tmp/
-
+#CMD es lo mismo que ENTRYPOINT pero con otro formato
 CMD ["mongod", "--smallfiles", "--rest"]
